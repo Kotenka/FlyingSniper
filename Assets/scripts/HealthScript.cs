@@ -31,7 +31,18 @@ public class HealthScript : MonoBehaviour
                 Damage(shot.damage);
                 //уничтожить выстрел
                 Destroy(shot.gameObject);
+                GameObject go = GameObject.FindGameObjectWithTag("Player");
+                go.GetComponent<ScoreScript>().AddScore();
+                
+              //  ScoreScript.scoreValue += 10;
+                
             }
+        }
+
+        Death death = otherCollider.gameObject.GetComponent<Death>();
+        if (death != null)
+        {
+            Destroy(gameObject);
         }
     }
 }
