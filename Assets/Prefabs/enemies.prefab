@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 63025142716474037}
   - component: {fileID: 63025142716474036}
   - component: {fileID: 63025142716474039}
-  - component: {fileID: 63025142716474033}
   - component: {fileID: 63025142716474026}
   - component: {fileID: 63025142716474038}
   - component: {fileID: 63025142716474034}
-  - component: {fileID: -6681488975816878005}
+  - component: {fileID: 200726770773186676}
+  - component: {fileID: 7375207390389605127}
   m_Layer: 0
   m_Name: enemies
   m_TagString: Enemy
@@ -136,21 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &63025142716474033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63025142716474045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a2a0c6890443434d9ffd4e2528f9213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 1
-  isEnemy: 1
-  BoyUh: {fileID: 8300000, guid: 05759a491f9593b4b9580a852b80ba25, type: 3}
 --- !u!114 &63025142716474026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,19 +182,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {x: 50, y: 0}
   direction: {x: -1, y: 0}
---- !u!82 &-6681488975816878005
+--- !u!82 &200726770773186676
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63025142716474045}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 05759a491f9593b4b9580a852b80ba25, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.372
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -217,7 +202,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -293,3 +278,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7375207390389605127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63025142716474045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2a0c6890443434d9ffd4e2528f9213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1
+  isEnemy: 1
+  hitSound: {fileID: 8300000, guid: 05759a491f9593b4b9580a852b80ba25, type: 3}

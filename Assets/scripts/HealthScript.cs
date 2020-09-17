@@ -9,13 +9,13 @@ public class HealthScript : MonoBehaviour
     //враг или игрок?
     public bool isEnemy = true;
 
-    public AudioClip BoyUh;
-    AudioSource audioSource;
+    public AudioClip hitSound;
+    //AudioSource audioSource;
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    //void Start()
+    //{
+    //    audioSource = GetComponent<AudioSource>();
+    //}
     //наносим урон и проверяем должен ли объект быть уничтоженым
     public void Damage (int damageCount)
     {
@@ -36,16 +36,11 @@ public class HealthScript : MonoBehaviour
             //избегайте дружественного огня
             if (shot.isEnemyShot != isEnemy)
             {
-                audioSource.PlayOneShot(BoyUh, 0.7F);
                 Damage(shot.damage);
                 //уничтожить выстрел
                 Destroy(shot.gameObject);
                 GameObject go = GameObject.FindGameObjectWithTag("Player");
-               
-                //GetComponent<AudioSource>().PlayOneShot(BoyUh);
-                //GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-                //enemy.GetComponent<AudioSource>().PlayOneShot(BoyUh);
-                //audio.PlayOneShot(audio.clip);
+                GetComponent<AudioSource>().PlayOneShot(hitSound);
                 go.GetComponent<ScoreScript>().AddScore();
                 
               //  ScoreScript.scoreValue += 10;
@@ -56,6 +51,7 @@ public class HealthScript : MonoBehaviour
         Death death = otherCollider.gameObject.GetComponent<Death>();
         if (death != null)
         {
+           
             Destroy(gameObject);
         }
     }
